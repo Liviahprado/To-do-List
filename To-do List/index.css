@@ -1,0 +1,175 @@
+body {
+    width: 100%; /* Full width */
+    min-height: 100vh; /* Minimum height to cover the viewport height */
+    display: flex; /* Use flexbox for layout */
+    justify-content: center; /* Center content horizontally */
+    align-items: center; /* Center content vertically */
+    margin: 0;
+    padding: 0;
+    font-family: 'Times New Roman', Times, serif;
+    background-color: #D2E3C8;
+}
+
+/* Responsive body height for mobile devices */
+@media (max-width: 600px) {
+    body {
+        height: auto; /* Allow the body to expand as needed on smaller devices */
+        padding: 20px; /* Add padding to prevent content from touching the edges */
+    }
+}
+
+.dark-theme {
+    background-color: rgb(45, 59, 46); /* Dark green background color for dark theme */
+    color: white; /* White text color for dark theme */
+}
+
+#color {
+    position: absolute; /* Position button absolutely within relative container */
+    top: 10px; /* Position from the top */
+    right: 10px; /* Position from the right */
+    cursor: pointer; /* Pointer cursor on hover */
+    background-color: rgb(79, 111, 82); /* Darker green background for the button */
+    color: whitesmoke; /* Light color for the text */
+    padding: 10px 20px; /* Padding inside the button */
+    border-radius: 8px; /* Rounded corners for the button */
+}
+
+.main-container {
+    display: flex;
+    flex-direction: column; /* Stack child elements vertically on smaller screens */
+    justify-content: center;
+    align-items: center;
+    gap: 20px; /* Reduce gap on smaller screens if necessary */
+    width: 90%; /* Make width responsive */
+    max-width: 600px; /* Max width for larger screens */
+}
+
+.circle {
+    cursor: pointer;
+    width: 20px; /* Fixed width */
+    height: 20px; /* Fixed height */
+    border-radius: 50%; /* Make it round */
+    border: 2px solid grey; /* Grey border */
+    margin-right: 10px; /* Space between circle and text */
+    transition: background-color 0.3s; /* Smooth transition for fill effect */
+}
+
+.filled {
+    background-color: grey; /* Fill color when task is completed */
+}
+
+.todo-container {
+    background-color: #86A789; /* Soft green background */
+    width: 100%; /* Full width within its parent container */
+    max-width: 350px; /* Max width to maintain usability */
+    height: auto; /* Height adjusts to content */
+    padding: 20px;
+    border-radius: 15px; /* Reduced border-radius for a subtler effect */
+    transition: transform 0.8s; /* Smooth transition for transformations */
+}
+
+/* Adjust the layout and sizing on smaller screens */
+@media (max-width: 600px) {
+    .todo-container {
+        max-width: 100%; /* Allow the container to expand fully on small screens */
+        padding: 15px; /* Adjust padding */
+    }
+
+    .task-item, .task-content, .delete-btn {
+        flex-direction: column; /* Stack elements vertically in task items */
+    }
+
+    .task-item {
+        margin: 10px 0; /* Increase vertical margin for clarity */
+    }
+
+    button, input, select, .delete-btn {
+        width: 100%; /* Full width for form elements to utilize space efficiently */
+    }
+}
+
+
+.todo-container:hover {
+    transform: rotateY(20deg); /* Rotate container on hover */
+}
+
+label {
+    margin-right: 10px; /* Space between label and the dropdown */
+    color: #294B29; /* Make the label color consistent with the theme */
+    font-family: 'Times New Roman', Times, serif; /* Font to match the input text */
+}
+
+#priority-input {
+    cursor: pointer; /* Indicates that the dropdown is interactive */
+    padding: 8px 10px; /* Padding for better touch interaction */
+    border-radius: 8px; /* Rounded corners to match other input styles */
+    border: 2px solid rgb(79, 111, 82); /* Border to match the styling of the input field */
+}
+
+/* Use flexbox to improve form element alignment and spacing */
+#todo-input, .mirror #mirror-input, #priority-input, button {
+    margin-bottom: 10px; /* Add bottom margin for stacking on smaller screens */
+}
+
+#todo-input, .mirror #mirror-input {
+    width: 200px; /* Fixed width */
+    margin: 50px; /* Margin around the input */
+    padding: 8px; /* Padding inside the input */
+    border-radius: 8px; /* Rounded corners */
+    border: 2px solid rgb(79, 111, 82); /* Solid border */
+}
+
+.task-item {
+    transition: transform 0.3s ease; /* Slower transition for task content */
+    display: flex; /* Use flexbox to align elements in the task item horizontally */
+    justify-content: space-between; /* Space the child elements evenly apart */
+    align-items: center; /* Align the child elements vertically in the center */
+    list-style:circle; /* Remove default list styles */
+    margin: 5px; /* Add margin around each task item for spacing */
+    overflow: hidden; /* Hide elements that overflow the boundaries of the task item */
+}
+
+.task-content {
+    cursor: pointer; /* Indicate clickable */
+    user-select: none; /* Prevent text selection */
+    display: flex; /* Flexbox for layout */
+    align-items: center; /* Center items vertically */
+}
+
+.delete-btn {
+    background-color: red; /* Set the background color of the delete button to red */
+    color: white; /* Set text color of the delete button to white */
+    border: none; /* Remove any border from the delete button */
+    padding: 10px 20px; /* Padding inside the delete button for better clickability */
+    cursor: pointer; /* Change cursor to pointer to indicate it's clickable */
+    width: 80px; /* Set a fixed width for the delete button */
+    transform: translateX(100%); /* Initially position the delete button offscreen to the right */
+    transition: transform 0.5s ease-out; /* Smooth transition for the delete button's movement */
+}
+
+.task-item:hover .task-content {
+    transform: translateX(-30px); /* Slide the task content left on hover to reveal delete button */
+}
+
+.task-item:hover .delete-btn {
+    transform: translateX(0); /* Slide the delete button into view on hover */
+}
+
+button {
+    cursor: pointer; /* Indicate that all buttons are clickable */
+    background-color: rgb(79, 111, 82); /* Set the background color for buttons */
+    color: whitesmoke; /* Set the text color for buttons */
+    padding: 10px 20px; /* Padding inside buttons for a better feel */
+    border-radius: 8px; /* Rounded corners for all buttons */
+    border: none; /* No borders on buttons to keep the design clean */
+}
+
+button:hover {
+    background-color: #133a16; /* Dark green background on hover for better visual feedback */
+    color: whitesmoke; /* Maintain white text color on hover */
+}
+
+.completed {
+    text-decoration: line-through; /* Strike through completed tasks */
+    color: grey; /* Change the text color to grey to indicate completion */
+}

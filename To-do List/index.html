@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body>
+  <div class="main-container">
+    <div class="todo-container">
+      <h1>To-Do List📗</h1>
+      <input type="text" id="todo-input" placeholder="Add a new task">
+      <label for="priority-input">Priority: </label>
+      <select id="priority-input"> <!-- Dropdown for priority selection -->
+        <option value="!">❕</option>
+        <option value="!!">❕❕</option>
+        <option value="!!!">❗❗❗</option>
+      </select> 
+      <br>
+      <br>
+      <br>
+      <button onclick="addTask()">Add Task</button>
+      <ul id="todo-list"></ul>
+    </div>
+
+    <div class="todo-container mirror" id="mirror-container" style="visibility: hidden;">
+      <h1>Your Tasks📖</h1>
+      <ul id="mirror-list"></ul>     
+    </div>
+  </div>
+
+  <button class='dark-theme' id="color">Dark Mode🌙</button>
+ 
+  <script src="index.js"></script>
+</body>
+</html>
